@@ -27,6 +27,7 @@ const Home = () => {
         .get(url)
         .then((response) => {
           setByType(response.data)
+          console.log(response.data)
         })
         .catch((error) => {
           console.log(error)
@@ -62,7 +63,7 @@ const Home = () => {
             <button
               className='border border-slate-600 rounded-md m-2 p-4 hover:bg-sky-100 w-[100px]'
             >
-              {pokemon.pokemon.name}
+              <Link to='/profile' state={{ url: pokemon.pokemon.url }} >{pokemon.pokemon.name}</Link>
             </button>
           ))}
         </div>
