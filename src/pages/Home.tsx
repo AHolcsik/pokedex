@@ -58,7 +58,11 @@ const Home = () => {
       )}
       {pokemonByType.length !== 0 &&
         <div>
-          <h3>Pokemon of {pokemonByType.name} type</h3>
+          {pokemonByType.pokemon.length !== 0 ? (
+            <h3>Pokemon of {pokemonByType.name} type</h3>
+          ) : (
+            <h3>There are now pokemons to be listed from {pokemonByType.name} type</h3>
+          )}
           {pokemonByType.pokemon.map((pokemon) => (
             <button
               className='border border-slate-600 rounded-md m-2 p-4 hover:bg-sky-100 w-[100px]'
