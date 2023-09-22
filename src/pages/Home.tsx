@@ -47,7 +47,7 @@ const Home = () => {
           <div className='flex flex-wrap my-4'>
             {pokeType.map((type) => (
               <button
-                className='border border-slate-600 rounded-md m-2 p-4 hover:bg-violet-100 w-[100px]'
+                className={`bg-${type.name} border border-slate-600 rounded-md m-2 p-4 hover:bg-violet-100 w-[100px]`}
                 onClick={() => selectPokeType(type.url)}
               >
                 {type.name}
