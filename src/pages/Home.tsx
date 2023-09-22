@@ -67,7 +67,7 @@ const Home = () => {
             <button
               className='border border-slate-600 rounded-md m-2 p-4 hover:bg-sky-100 w-[100px]'
             >
-              <Link to='/profile' state={{ url: pokemon.pokemon.url }} >{pokemon.pokemon.name}</Link>
+              <Link to='/profile' state={{ url: pokemon.pokemon.url, type: pokemonByType.name }} >{pokemon.pokemon.name}</Link>
             </button>
           ))}
         </div>

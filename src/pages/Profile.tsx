@@ -16,7 +16,6 @@ const Profile = () => {
 			.get(state.url)
 			.then ((response) => {
 				setPokemon(response.data)
-				console.log(response.data.types[0])
 
 				const abilities = []
 				Object.keys(response.data.abilities).map(function(key) {
@@ -40,8 +39,8 @@ const Profile = () => {
 			<h1 className='text-3xl my-4'>Pokemon details</h1>
 			{loading ? (
 				<Spinner />
-			) : (pokemon.length !==0 &&
-				<div className={`bg-${pokemon.types[0].type.name} text-white flex flex-col border-2 border-orange-300 rounded-xl w-fit p-4`}>
+			) : (
+				<div className={`bg-${state.type} text-white flex flex-col border-2 border-orange-300 rounded-xl w-fit p-4`}>
 					<div className='my-4'>
 						<span className='text-md mr-4 text-gray-500'>name</span>
 						<span>{pokemon.name}</span>
