@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import Spinner from '../components/Spinner';
+import Spinner from '../components/Spinner'
 import { useLocation } from 'react-router-dom'
-import BackButton from '../components/BackButton';
+import BackButton from '../components/BackButton'
 
 const Profile = () => {
 	const [loading, setLoading] = useState(false)
@@ -32,6 +32,7 @@ const Profile = () => {
 				setLoading(false)
 			})
 	}, [])
+	console.log(pokemon)
 
   return (
     <div className='p-4'>
@@ -41,6 +42,7 @@ const Profile = () => {
 				<Spinner />
 			) : (
 				<div className={`bg-${state.type} text-white flex flex-col border-2 border-orange-300 rounded-xl w-fit p-4`}>
+					<img src={`../../node_modules/pokemon-sprites/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} width="100"/>
 					<div className='my-4'>
 						<span className='text-md mr-4 text-gray-500'>name</span>
 						<span>{pokemon.name}</span>
