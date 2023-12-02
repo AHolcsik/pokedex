@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import Spinner from '../components/Spinner'
 import { useLocation } from 'react-router-dom'
 import BackButton from '../components/BackButton'
+import { PokeContext } from '../context'
 
 const Profile = () => {
 	const [loading, setLoading] = useState(false)
 	const [pokemon, setPokemon] = useState <any []>([])
 	const { state } = useLocation()
 	const [nonHiddenAbilities, setAbilities] = useState([])
+	const { contextPokemon, setContextPokemon } = useContext(PokeContext)
 
 	useEffect(() => {
 		setLoading(true)
@@ -32,12 +34,17 @@ const Profile = () => {
 				setLoading(false)
 			})
 	}, [])
-	console.log(pokemon)
+
+	const gottaCatchEmAll = () => {
+		setContextPokemon(pokemon)
+		console.log(contextPokemon)
+	}
 
   return (
     <div className='p-4'>
 			<BackButton />
 			<h1 className='text-3xl my-4'>Pokemon details</h1>
+			<button onClick={gottaCatchEmAll}>catch!</button>
 			{loading ? (
 				<Spinner />
 			) : (
